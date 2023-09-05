@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AssociateService } from 'src/app/service/associate.service';
-import { addAssociate, addAssociateSuccess, loadAssociate, loadAssociateFail, loadAssociateSuccess } from './associate.action';
+import { addAssociate, addAssociateSuccess, loadAssociate, loadAssociateFail, loadAssociateSuccess, updateAssociate, updateAssociateSuccess } from './associate.action';
 import { catchError, exhaustMap, map, of, switchMap } from 'rxjs';
 import { showAlert } from '../common/app.action';
 
@@ -38,5 +38,19 @@ export class AssociateEffects{
             })
         )
     )
+
+    _updateAssociate = createEffect(() =>
+    this.actions.pipe(
+        ofType(updateAssociate),
+        exhaustMap((action) =>{
+            return this.associateService.getById(action.id).pipe(
+                map((data) => {
+                    return updateAssociateSuccess({ object: data });
+                }),
+                catchError((_error) => of(showAlert({message: 'Failed to fetch data' + _error.message, resultType: 'fail'})))
+            );
+        })
+    )
+)
 
 }

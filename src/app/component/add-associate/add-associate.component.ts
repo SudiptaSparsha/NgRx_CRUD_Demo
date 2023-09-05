@@ -4,6 +4,7 @@ import { FormBuilder, Validators} from '@angular/forms'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { addAssociate } from 'src/app/store/associate/associate.action';
+import { updateAssociate } from 'src/app/store/associate/associate.selectors';
 import { Associates } from 'src/app/store/model/associate.model';
 
 @Component({
@@ -26,6 +27,18 @@ export class AddAssociateComponent implements OnInit {
   ngOnInit(): void {
     this.dialogData = this.data;
     this.title = this.dialogData.title;
+    this.store.select(updateAssociate).subscribe(response => {
+      this.associateForm.setValue({
+        id: response.id,
+        name: response.name,
+        email: response.email,
+        phone: response.phone,
+        address: response.address,
+        type: response.type,
+        group: response.associateGroup,
+        status: response.status
+      })
+    })
   }
 
   closePopup(){

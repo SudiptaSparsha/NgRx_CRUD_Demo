@@ -4,7 +4,7 @@ import { AddAssociateComponent } from '../add-associate/add-associate.component'
 import { Store } from '@ngrx/store';
 import { Associates } from 'src/app/store/model/associate.model';
 import { getAssociateList } from 'src/app/store/associate/associate.selectors';
-import { loadAssociate } from 'src/app/store/associate/associate.action';
+import { loadAssociate, openPopup, updateAssociate } from 'src/app/store/associate/associate.action';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -15,13 +15,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./associate-listing.component.css'],
 })
 export class AssociateListingComponent implements OnInit {
-  FunctionDelete(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
-  FunctionEdit(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
-
+  
   associateList!: Associates[];
   dataSource: any;
   @ViewChild(MatPaginator) paginator! : MatPaginator;
@@ -58,11 +52,23 @@ export class AssociateListingComponent implements OnInit {
     this.openPopup(0, 'Create Associate');
   }
 
+  
+  functionDelete(id : number) {
+    this.openPopup(id, 'Delete Associate');
+  }
+
+  functionEdit(id : number) {
+    this.openPopup(id, 'Update Associate');
+    this.store.dispatch(updateAssociate({id: id}))
+  }
+
+
   openPopup(code: number, title: string) {
+    this.store.dispatch(openPopup())
     this.dialog.open(AddAssociateComponent, {
       width: '50%',
-      enterAnimationDuration: '1000ms',
-      exitAnimationDuration: '1000ms',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '500ms',
       data: {
         code: code,
         title: title,
