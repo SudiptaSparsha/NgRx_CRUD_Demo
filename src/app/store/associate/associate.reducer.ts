@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { associateState } from "./associate.state";
-import { addAssociateSuccess, loadAssociateFail, loadAssociateSuccess, openPopup, updateAssociateSuccess } from "./associate.action";
+import { addAssociateSuccess, editAssociateSuccess, loadAssociateFail, loadAssociateSuccess, openPopup, updateAssociateSuccess } from "./associate.action";
 
 const _associateReducer = createReducer(associateState,
         on(loadAssociateSuccess, (state, action) =>{
@@ -49,7 +49,17 @@ const _associateReducer = createReducer(associateState,
                     status: true
                 }
             }
-        })
+        }),
+        on(editAssociateSuccess, (state, action) =>{
+            const _newData = state.list.map(object => {
+                return object.id === action.inputData.id ? action.inputData : object;
+            })
+            return {
+                ...state,
+                list :  _newData,
+                errorMessage : ''
+            }
+        }),
     )
 
 export function associateReducer(state: any, action: any){

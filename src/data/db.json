@@ -42,13 +42,13 @@
     },
     {
       "id": 4,
-      "name": "Sudipta",
-      "email": "sudipta.2304@gmail.com",
-      "phone": "12345678",
+      "name": "Sparsha",
+      "email": "sparsha.2304@gmail.com",
+      "phone": "123454678",
       "type": "Customer",
       "address": "abc",
       "associateGroup": "level_1",
-      "status": true
+      "status": false
     },
     {
       "id": 5,
@@ -137,6 +137,16 @@
       "phone": "12345678",
       "type": "Customer",
       "address": "abc",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 14,
+      "name": "Feroz",
+      "email": "feroz.vai@gmail.com",
+      "phone": "46463631",
+      "type": "Customer",
+      "address": "dzrghiudbn",
       "associateGroup": "level_1",
       "status": true
     }

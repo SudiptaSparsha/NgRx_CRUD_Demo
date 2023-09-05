@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { addAssociate } from 'src/app/store/associate/associate.action';
+import { addAssociate, editAssociate } from 'src/app/store/associate/associate.action';
 import { updateAssociate } from 'src/app/store/associate/associate.selectors';
 import { Associates } from 'src/app/store/model/associate.model';
 
@@ -71,7 +71,11 @@ export class AddAssociateComponent implements OnInit {
         status: this.associateForm.value.status as boolean
       }
 
-      this.store.dispatch(addAssociate({inputData : _obj}))
+      if(_obj.id === 0){
+        this.store.dispatch(addAssociate({inputData : _obj}))
+      }else{
+        this.store.dispatch(editAssociate({inputData : _obj}))
+      }
 
       this.closePopup();
 
