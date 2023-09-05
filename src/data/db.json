@@ -1,0 +1,84 @@
+{
+  "associate": [
+    {
+      "id": 0,
+      "name": "Sudipta",
+      "email": "sudipta.2304@gmail.com",
+      "phone": "12345678",
+      "type": "Customer",
+      "address": "abc",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 1,
+      "name": "Alif",
+      "email": "alif.khan@gmail.com",
+      "phone": "123455458",
+      "type": "Customer",
+      "address": "xyz",
+      "associateGroup": "level_2",
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Sanjoy",
+      "email": "sanjoy.mahato@gmail.com",
+      "phone": "12371678",
+      "type": "Supplier",
+      "address": "dgr",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 3,
+      "name": "Sudipta",
+      "email": "sudipta.2304@gmail.com",
+      "phone": "12345678",
+      "type": "Customer",
+      "address": "abc",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 4,
+      "name": "Sudipta",
+      "email": "sudipta.2304@gmail.com",
+      "phone": "12345678",
+      "type": "Customer",
+      "address": "abc",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 5,
+      "name": "Sudipta",
+      "email": "sudipta.2304@gmail.com",
+      "phone": "12345678",
+      "type": "Customer",
+      "address": "abc",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 6,
+      "name": "Sudipta",
+      "email": "sudipta.2304@gmail.com",
+      "phone": "12345678",
+      "type": "Customer",
+      "address": "abc",
+      "associateGroup": "level_1",
+      "status": false
+    },
+    {
+      "id": 7,
+      "name": "Pranto",
+      "email": "pranto.vai@gmail.com",
+      "phone": "684686541",
+      "type": "Customer",
+      "address": "skhrgb",
+      "associateGroup": "level_1",
+      "status": true
+    }
+  ]
+}

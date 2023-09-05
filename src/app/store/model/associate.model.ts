@@ -8,3 +8,9 @@ export interface Associates{
     associateGroup: string,
     status: boolean
 }
+
+export interface AssociateModel{
+    list : Associates[],
+    associateObject : Associates,
+    errorMessage : string
+}
