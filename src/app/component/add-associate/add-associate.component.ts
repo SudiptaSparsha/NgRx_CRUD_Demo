@@ -35,7 +35,7 @@ export class AddAssociateComponent implements OnInit {
         phone: response.phone,
         address: response.address,
         type: response.type,
-        group: response.associateGroup,
+        associateGroup: response.associateGroup,
         status: response.status
       })
     })
@@ -52,7 +52,7 @@ export class AddAssociateComponent implements OnInit {
     phone : this.builder.control('', Validators.required),
     address : this.builder.control('', Validators.required),
     type : this.builder.control('Customer'),
-    group : this.builder.control('level_1'),
+    associateGroup : this.builder.control('level_1'),
     status : this.builder.control(true)
   });
 
@@ -67,9 +67,10 @@ export class AddAssociateComponent implements OnInit {
         phone: this.associateForm.value.phone as string,
         type: this.associateForm.value.type as string,
         address: this.associateForm.value.address as string,
-        associateGroup: this.associateForm.value.group as string,
+        associateGroup: this.associateForm.value.associateGroup as string,
         status: this.associateForm.value.status as boolean
       }
+      console.log(this.associateForm.value);
 
       if(_obj.id === 0){
         this.store.dispatch(addAssociate({inputData : _obj}))

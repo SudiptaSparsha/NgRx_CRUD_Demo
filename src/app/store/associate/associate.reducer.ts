@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { associateState } from "./associate.state";
-import { addAssociateSuccess, editAssociateSuccess, loadAssociateFail, loadAssociateSuccess, openPopup, updateAssociateSuccess } from "./associate.action";
+import { addAssociateSuccess, deleteAssociateSuccess, editAssociateSuccess, loadAssociateFail, loadAssociateSuccess, openPopup, updateAssociateSuccess } from "./associate.action";
 
 const _associateReducer = createReducer(associateState,
         on(loadAssociateSuccess, (state, action) =>{
@@ -10,6 +10,7 @@ const _associateReducer = createReducer(associateState,
                 errorMessage : ''
             }
         }),
+
         on(loadAssociateFail, (state, action) =>{
             return {
                 ...state,
@@ -17,6 +18,7 @@ const _associateReducer = createReducer(associateState,
                 errorMessage : action.errorMessage
             }
         }),
+
         on(addAssociateSuccess, (state, action) =>{
             const _maxId = Math.max(...state.list.map(object => object.id));
             const _newData = {...action.inputData};
@@ -28,6 +30,7 @@ const _associateReducer = createReducer(associateState,
                 errorMessage : ''
             }
         }),
+
         on(updateAssociateSuccess, (state, action) =>{
             return {
                 ...state,
@@ -35,6 +38,7 @@ const _associateReducer = createReducer(associateState,
                 errorMessage : ''
             }
         }),
+
         on(openPopup, (state, action) =>{
             return {
                 ...state,
@@ -50,10 +54,20 @@ const _associateReducer = createReducer(associateState,
                 }
             }
         }),
+
         on(editAssociateSuccess, (state, action) =>{
             const _newData = state.list.map(object => {
                 return object.id === action.inputData.id ? action.inputData : object;
             })
+            return {
+                ...state,
+                list :  _newData,
+                errorMessage : ''
+            }
+        }),
+
+        on(deleteAssociateSuccess, (state, action) =>{
+            const _newData = state.list.filter(object => object.id !== action.id);
             return {
                 ...state,
                 list :  _newData,

@@ -4,6 +4,8 @@ import { AssociateService } from 'src/app/service/associate.service';
 import {
   addAssociate,
   addAssociateSuccess,
+  deleteAssociate,
+  deleteAssociateSuccess,
   editAssociate,
   editAssociateSuccess,
   loadAssociate,
@@ -98,6 +100,30 @@ export class AssociateEffects {
             of(
               showAlert({
                 message: 'Failed to update associate',
+                resultType: 'fail',
+              })
+            )
+          )
+        );
+      })
+    )
+  );
+
+  _deleteAssociate = createEffect(() =>
+    this.actions.pipe(
+      ofType(deleteAssociate),
+      switchMap((action) => {
+        return this.associateService.delete(action.id).pipe(
+          switchMap((data) => {
+            return of(
+              deleteAssociateSuccess({ id: action.id }),
+              showAlert({ message: 'Deleted successfully', resultType: 'pass' })
+            );
+          }),
+          catchError((_error) =>
+            of(
+              showAlert({
+                message: 'Failed to delete associate',
                 resultType: 'fail',
               })
             )

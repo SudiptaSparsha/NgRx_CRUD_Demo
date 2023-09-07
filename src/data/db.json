@@ -12,13 +12,13 @@
     },
     {
       "id": 1,
-      "name": "Alif",
-      "email": "alif.khan@gmail.com",
-      "phone": "123455458",
-      "type": "Customer",
-      "address": "xyz",
-      "associateGroup": "level_2",
-      "status": true
+      "name": "Alif khan",
+      "email": "alif.khan51@gmail.com",
+      "phone": "1234554687",
+      "type": "Supplier",
+      "address": "xyzdbhwsgrh",
+      "associateGroup": "level_3",
+      "status": false
     },
     {
       "id": 2,
@@ -121,16 +121,6 @@
       "status": true
     },
     {
-      "id": 12,
-      "name": "Sudipta",
-      "email": "sudipta.2304@gmail.com",
-      "phone": "12345678",
-      "type": "Customer",
-      "address": "abc",
-      "associateGroup": "level_1",
-      "status": true
-    },
-    {
       "id": 13,
       "name": "Sudipta",
       "email": "sudipta.2304@gmail.com",
@@ -147,6 +137,16 @@
       "phone": "46463631",
       "type": "Customer",
       "address": "dzrghiudbn",
+      "associateGroup": "level_1",
+      "status": true
+    },
+    {
+      "id": 15,
+      "name": "Ashraf Hussain",
+      "email": "ashraf@gmail.com",
+      "phone": "65416541352",
+      "type": "Customer",
+      "address": "Sylhet",
       "associateGroup": "level_1",
       "status": true
     }

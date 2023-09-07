@@ -4,7 +4,7 @@ import { AddAssociateComponent } from '../add-associate/add-associate.component'
 import { Store } from '@ngrx/store';
 import { Associates } from 'src/app/store/model/associate.model';
 import { getAssociateList } from 'src/app/store/associate/associate.selectors';
-import { loadAssociate, openPopup, updateAssociate } from 'src/app/store/associate/associate.action';
+import { deleteAssociate, loadAssociate, openPopup, updateAssociate } from 'src/app/store/associate/associate.action';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -54,8 +54,17 @@ export class AssociateListingComponent implements OnInit {
 
   
   functionDelete(id : number) {
-    this.openPopup(id, 'Delete Associate');
+    if(confirm('Do you want to remove this associate?')){
+      this.store.dispatch(deleteAssociate({id: id}))
+    }
   }
+
+
+  // FunctionEdit(code:number){
+  //   this.openPopup(code, 'Update Associate');
+  //   this.store.dispatch(updateAssociate({id:code}))
+  // }
+
 
   functionEdit(id : number) {
     this.openPopup(id, 'Update Associate');
